@@ -31,4 +31,20 @@ function cards() {
   headline.classList.add("headline");
   author.classList.add("auther");
   imgContain.classList.add("img-container");
+
+  //adding default value in text content
+  headline.textContent = "{Headline of article}";
+  authImg.src = " {url of authors image}";
+  authorName.textContent = "By {author's name}";
+
+  //appening and returning
+
+  author.appendChild(imgContain);
+  author.appendChild(imgContain);
+  author.appendChild(authImg);
+  author.appendChild(authorName);
+  card.appendChild(headline);
+  card.appendChild(author);
+
+  return card;
 }
