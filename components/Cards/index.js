@@ -48,3 +48,6 @@ function cards() {
 
   return card;
 }
+
+const cards1 = document.querySelector(".cards-container");
+cards1.appendChild(cards());
