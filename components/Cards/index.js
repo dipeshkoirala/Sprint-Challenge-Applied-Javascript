@@ -18,3 +18,17 @@
 // </div>
 //
 // Use your function to create a card for each of the articles and add the card to the DOM.
+function cards() {
+  //variable declaration
+  const card = document.createElement("div"); //returh card
+  const headline = document.createElement("div"); //append to card
+  const author = document.createElement("div"); //append to card
+  const imgContain = document.createElement("div"); //append to author
+  const authImg = document.createElement("img"); //append to author
+  const authorName = document.createElement("span"); //append to author
+  //defining class
+  card.classList.add("card");
+  headline.classList.add("headline");
+  author.classList.add("auther");
+  imgContain.classList.add("img-container");
+}
