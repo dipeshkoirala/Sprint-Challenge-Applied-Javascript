@@ -18,4 +18,14 @@ function Header(date, temp) {
   const span = document.createElement("span");
   const h_1 = document.createElement("h1");
   const span1 = document.createElement("span");
+
+  //defining class
+  header1.classList.add("header");
+  span.classList.add("date");
+  span1.classList.add("temp");
+
+  //adding default value in text content
+  span.textContent = date;
+  h_1.textContent = "Lambda Times";
+  span1.textContent = temp;
 }
