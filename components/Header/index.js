@@ -37,3 +37,10 @@ function Header(date, temp) {
 
   return header1;
 }
+//variable declaration for querySelector
+const myContainer = document.querySelector(".header-container");
+data.forEach((obj) => {
+  const headerComponent = Header(obj.date, obj.temp);
+  console.log(headerComponent);
+  myContainer.appendChild(headerComponent);
+});
