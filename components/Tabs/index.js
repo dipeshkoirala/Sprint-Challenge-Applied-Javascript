@@ -7,3 +7,12 @@
 //
 //  Each tab should look like this:
 //    <div class="tab">topic here</div>
+function tab() {
+  const tab = document.createElement("div");
+  tab.classList.add("tab");
+  tab.textContent = "topic here";
+  return tab;
+}
+
+const tab1 = document.querySelector(".tabs");
+tab1.appendChild(tab());
