@@ -10,5 +10,12 @@
 //
 // Use your function to create a header
 // and append it to the DOM inside the div.header-container
+data = [{ date: "$MARCH 28,2019", temp: "98°" }];
 
-function Header() {}
+function Header(date, temp) {
+  //variable declaration
+  const header1 = document.createElement("div");
+  const span = document.createElement("span");
+  const h_1 = document.createElement("h1");
+  const span1 = document.createElement("span");
+}
