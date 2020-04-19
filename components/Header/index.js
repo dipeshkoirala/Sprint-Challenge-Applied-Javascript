@@ -28,4 +28,12 @@ function Header(date, temp) {
   span.textContent = date;
   h_1.textContent = "Lambda Times";
   span1.textContent = temp;
+
+  //appening and returning
+
+  header1.appendChild(span);
+  header1.appendChild(h_1);
+  header1.appendChild(span1);
+
+  return header1;
 }
