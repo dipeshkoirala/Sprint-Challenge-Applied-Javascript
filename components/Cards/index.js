@@ -18,7 +18,7 @@
 // </div>
 //
 // Use your function to create a card for each of the articles and add the card to the DOM.
-function cards(obj) {
+function cards1(obj) {
   //variable declaration
   const card = document.createElement("div"); //returh card
   const headline = document.createElement("div"); //append to card
@@ -34,7 +34,7 @@ function cards(obj) {
 
   //adding default value in text content
   headline.textContent = obj.headline; //{Headline of article}"; ;
-  authImg.src = "../assets/bones.jpg";
+  authImg.src = obj.authorPhoto;
   authorName.textContent = `By: ${obj.authorName}`; //"By {author's name}";
 
   //appening and returning
@@ -49,16 +49,37 @@ function cards(obj) {
   return card;
 }
 
-// const cards1 = document.querySelector(".cards-container");
+const cards2 = document.querySelector(".cards-container");
 // cards1.appendChild(cards());
 
 axios
   .get("https://lambda-times-backend.herokuapp.com/articles")
   .then((response) => {
-    console.log(response);
-    const newObj = cards(response.data);
-    console.log(newObj);
-    document.querySelector(".cards").appendChild(newObj);
+    console.log(response.data.articles);
+    response.data.articles.javascript.forEach((obj) => {
+      const newItem = cards1(obj);
+      cards2.appendChild(newItem);
+    });
+
+    response.data.articles.bootstrap.forEach((obj) => {
+      const newItem = cards1(obj);
+      cards2.appendChild(newItem);
+    });
+
+    response.data.articles.technology.forEach((obj) => {
+      const newItem = cards1(obj);
+      cards2.appendChild(newItem);
+    });
+
+    response.data.articles.jquery.forEach((obj) => {
+      const newItem = cards1(obj);
+      cards2.appendChild(newItem);
+    });
+
+    response.data.articles.node.forEach((obj) => {
+      const newItem = cards1(obj);
+      cards2.appendChild(newItem);
+    });
   })
   .catch((error) => {
     console.log("Data couldn't be returned", error);
