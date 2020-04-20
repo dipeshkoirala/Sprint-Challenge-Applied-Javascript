@@ -26,14 +26,30 @@ const images = [
 ];
 
 function carouselC(images) {
-  console.log(images);
   const carousel = document.createElement("div");
   const leftBtn = document.createElement("button");
-  carousel.appendChild(leftBtn);
+
   images.forEach((image) => {
     const img = document.createElement("img");
     img.src = image;
     carousel.appendChild(img);
   });
   const rightBtn = document.createElement("button");
+
+  //classList
+  carousel.classList.add("carousel");
+  leftBtn.classList.add("left-button");
+  rightBtn.classList.add("right-button");
+
+  //textContent
+  leftBtn.textContent = "<";
+  rightBtn.textContent = ">";
+
+  carousel.appendChild(leftBtn);
+  carousel.appendChild(rightBtn);
+
+  return carousel;
 }
+
+const caroCon = document.querySelector(".carousel-container");
+caroCon.appendChild(carouselC(images));

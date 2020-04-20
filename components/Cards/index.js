@@ -18,7 +18,7 @@
 // </div>
 //
 // Use your function to create a card for each of the articles and add the card to the DOM.
-function cards() {
+function cards(obj) {
   //variable declaration
   const card = document.createElement("div"); //returh card
   const headline = document.createElement("div"); //append to card
@@ -29,13 +29,13 @@ function cards() {
   //defining class
   card.classList.add("card");
   headline.classList.add("headline");
-  author.classList.add("auther");
+  author.classList.add("author");
   imgContain.classList.add("img-container");
 
   //adding default value in text content
-  headline.textContent = "{Headline of article}";
-  authImg.src = " {url of authors image}";
-  authorName.textContent = "By {author's name}";
+  headline.textContent = obj.headline; //{Headline of article}"; ;
+  authImg.src = "../assets/bones.jpg";
+  authorName.textContent = `By: ${obj.authorName}`; //"By {author's name}";
 
   //appening and returning
 
@@ -49,5 +49,17 @@ function cards() {
   return card;
 }
 
-const cards1 = document.querySelector(".cards-container");
-cards1.appendChild(cards());
+// const cards1 = document.querySelector(".cards-container");
+// cards1.appendChild(cards());
+
+axios
+  .get("https://lambda-times-backend.herokuapp.com/articles")
+  .then((response) => {
+    console.log(response);
+    const newObj = cards(response.data);
+    console.log(newObj);
+    document.querySelector(".cards").appendChild(newObj);
+  })
+  .catch((error) => {
+    console.log("Data couldn't be returned", error);
+  });
