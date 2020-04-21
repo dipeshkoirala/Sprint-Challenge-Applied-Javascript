@@ -10,7 +10,11 @@
 function tab(obj) {
   const tab1 = document.createElement("div");
   tab1.classList.add("tab");
-  tab1.textContent = obj.topics;
+  tab1.textContent = obj.toUpperCase();
+  tab1.style.margin = "10px";
+  tab1.style.background = "black";
+  tab1.style.padding = "7px";
+  tab1.style.color = "white";
   return tab1;
 }
 
@@ -23,6 +27,7 @@ axios
     //console.log(response.data.topics);
     response.data.topics.forEach((obj) => {
       const topi = tab(obj);
+      console.log(topi);
       tab2.appendChild(topi);
     });
   })

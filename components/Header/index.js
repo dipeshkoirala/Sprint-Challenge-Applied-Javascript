@@ -41,6 +41,6 @@ function Header(date, temp) {
 const myContainer = document.querySelector(".header-container");
 data.forEach((obj) => {
   const headerComponent = Header(obj.date, obj.temp);
-  console.log(headerComponent);
+  //console.log(headerComponent);
   myContainer.appendChild(headerComponent);
 });

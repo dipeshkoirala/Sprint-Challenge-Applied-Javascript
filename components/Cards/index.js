@@ -31,10 +31,16 @@ function cards1(obj) {
   headline.classList.add("headline");
   author.classList.add("author");
   imgContain.classList.add("img-container");
+  imgContain.style.width = "70px";
+  imgContain.style.height = "70px";
 
   //adding default value in text content
   headline.textContent = obj.headline; //{Headline of article}"; ;
+  //imgContain.style.borderRight = "2px solid gray";
+  card.style.margin = "10px";
   authImg.src = obj.authorPhoto;
+  authImg.style.width = "60px";
+  authImg.style.height = "60px";
   authorName.textContent = `By: ${obj.authorName}`; //"By {author's name}";
 
   //appening and returning
@@ -58,6 +64,7 @@ axios
     console.log(response.data.articles);
     response.data.articles.javascript.forEach((obj) => {
       const newItem = cards1(obj);
+
       cards2.appendChild(newItem);
     });
 

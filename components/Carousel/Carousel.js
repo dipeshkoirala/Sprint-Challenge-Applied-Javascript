@@ -50,8 +50,10 @@ function carouselC(images) {
     caro_img.forEach((event) => {
       //console.log(caro_img.src);
       event.style.border = "5px solid Red";
-      event.style.translate = "scale(1.6)";
-      event.style.opacity = "0.5";
+      event.style.transform = "scale(.8)";
+      event.style.opacity = "0.2";
+      event.style.transform = "rotate(180deg)";
+      event.style.transition = "transform 1s";
     });
   });
 
@@ -59,8 +61,9 @@ function carouselC(images) {
     let caro_img = [...document.querySelectorAll(".carousel img")];
     caro_img.forEach((event) => {
       //console.log(caro_img.src);
-      event.style.border = "5px solid Blue";
+      event.style.border = "2px dotted silver";
       event.style.opacity = "1";
+      event.style.transform = "scale(2)";
     });
   });
   carousel.appendChild(leftBtn);
