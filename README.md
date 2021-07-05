@@ -29,14 +29,35 @@ Demonstrate your understanding of this week's concepts by answering the followin
 Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your team lead.
 
 1. What is the DOM?
+ 
+=> Document Object Model is created by the browser when the page is loaded
+   . It is actually in the tree form with node element.
 
 2. What is an event?
 
+=> Physical things happen in the browser is nothing but an event like moving the mouse ,pressing a key, leaving the key 
+provinding fingerprints , etc.
+
 3. What is an event listener?
+==> Its User Handler for the event just happenend .
+ 1) physical things happens
+ 2) Events are triggered in Browser
+ 3) the browser creates an object for the event
+ 4) User event handlers are called  -----> there comes eventlistener
+  addEventListener('type',function,true/false)
+  (if its true - event will be called in capturing as well as bubbling phase
+  (if its false - event will only happen in the bubbling phase
 
 4. Why would we convert a NodeList into an Array?
 
+=> We need to convert a NodeList into an Array using (Array.from) , because 
+    NodList though looks like an array is not actually an array. I think thats' the reason may be.
+	
 5. What is a component?
+
+=>  Components are reusable pieces of code that can 
+be used to build elements sharing functionality and styling. 
+Components are the heart  of any dynamic web application and JavaScript framework.
 
 ### Git Set up
 

@@ -18,3 +18,76 @@
 // </div>
 //
 // Use your function to create a card for each of the articles and add the card to the DOM.
+function cards1(obj) {
+  //variable declaration
+  const card = document.createElement("div"); //returh card
+  const headline = document.createElement("div"); //append to card
+  const author = document.createElement("div"); //append to card
+  const imgContain = document.createElement("div"); //append to author
+  const authImg = document.createElement("img"); //append to author
+  const authorName = document.createElement("span"); //append to author
+  //defining class
+  card.classList.add("card");
+  headline.classList.add("headline");
+  author.classList.add("author");
+  imgContain.classList.add("img-container");
+  imgContain.style.width = "70px";
+  imgContain.style.height = "70px";
+
+  //adding default value in text content
+  headline.textContent = obj.headline; //{Headline of article}"; ;
+  //imgContain.style.borderRight = "2px solid gray";
+  card.style.margin = "10px";
+  authImg.src = obj.authorPhoto;
+  authImg.style.width = "60px";
+  authImg.style.height = "60px";
+  authorName.textContent = `By: ${obj.authorName}`; //"By {author's name}";
+
+  //appening and returning
+
+  author.appendChild(imgContain);
+  author.appendChild(imgContain);
+  author.appendChild(authImg);
+  author.appendChild(authorName);
+  card.appendChild(headline);
+  card.appendChild(author);
+
+  return card;
+}
+
+const cards2 = document.querySelector(".cards-container");
+// cards1.appendChild(cards());
+
+axios
+  .get("https://lambda-times-backend.herokuapp.com/articles")
+  .then((response) => {
+    console.log(response.data.articles);
+    response.data.articles.javascript.forEach((obj) => {
+      const newItem = cards1(obj);
+
+      cards2.appendChild(newItem);
+    });
+
+    response.data.articles.bootstrap.forEach((obj) => {
+      const newItem = cards1(obj);
+      cards2.appendChild(newItem);
+    });
+
+    response.data.articles.technology.forEach((obj) => {
+      const newItem = cards1(obj);
+      cards2.appendChild(newItem);
+    });
+
+    response.data.articles.jquery.forEach((obj) => {
+      const newItem = cards1(obj);
+      cards2.appendChild(newItem);
+    });
+
+    response.data.articles.node.forEach((obj) => {
+      const newItem = cards1(obj);
+      cards2.appendChild(newItem);
+    });
+  })
+  .catch((error) => {
+    console.log("Data couldn't be returned", error);
+  });
